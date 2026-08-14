@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Strata — Employee Equity Simulator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+
+  <div class="brand">
+    <div class="brand-mark">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <span class="brand-name">
+      Strata<sup>PROTOTYPE</sup>
+    </span>
+  </div>
+
+  <nav class="topnav">
+    <a href="#" class="active">Dashboard</a>
+    <a href="#captable-section">Cap Table</a>
+    <a href="#timeline-section">Funding</a>
+    <a href="#simulator-section">Simulator</a>
+  </nav>
+
+  <div class="topbar-right">
+
+    <div class="live-chip">
+      <span class="live-dot"></span>
+      Live model
+    </div>
+
+    <div class="user-chip">
+      <div class="avatar">SC</div>
+
+      <div class="who">
+        <b>Sarah Chen</b>
+        <small>Senior Engineer · Joined Seed</small>
+      </div>
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= MAIN DASHBOARD ================= -->
+
+<main class="dashboard">
+
+
+  <!-- ================= INTRO ================= -->
+
+  <section class="page-intro">
+
+    <p class="eyebrow">
+      Employee Equity Intelligence
+    </p>
+
+    <h1>
+      See what your equity is actually worth — before you have to guess.
+    </h1>
+
+    <p class="lede">
+      Strata models your company's full capitalization stack — founders,
+      investors, and option holders — so you can simulate real exit
+      outcomes and understand exactly how dilution and liquidation
+      preference shape your payout.
+    </p>
+
+    <div class="intro-tags">
+
+      <span class="tag">
+        <i></i>
+        Fully diluted modeling
+      </span>
+
+      <span class="tag">
+        <i></i>
+        Waterfall-aware
+      </span>
+
+      <span class="tag">
+        <i></i>
+        Transparent cap table
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SUMMARY CARDS ================= -->
+
+  <section class="summary-grid">
+
+    <div class="stat-card">
+
+      <div class="label">
+        Current Valuation
+
+        <div class="icon icon-teal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M3 17l6-6 4 4 8-8"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+      </div>
+
+      <div class="value">
+        $180.0M
+      </div>
+
+      <div class="delta up">
+        ▲ Post Series B · Jun 2026
+      </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <div class="label">
+        Shares Outstanding
+
+        <div class="icon icon-founders">
+
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+
+            <rect
+              x="3"
+              y="10"
+              width="4"
+              height="10"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <rect
+              x="10"
+              y="5"
+              width="4"
+              height="15"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <rect
+              x="17"
+              y="13"
+              width="4"
+              height="7"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+      <div class="value">
+        10,000,000
+      </div>
+
+      <div class="delta">
+        Fully diluted, common + preferred
+      </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <div class="label">
+        Your Ownership
+
+        <div class="icon icon-employees">
+
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+
+            <circle
+              cx="12"
+              cy="8"
+              r="3.4"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <path
+              d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+      <div class="value">
+        40,000 <span class="unit">sh</span>
+      </div>
+
+      <div class="delta">
+        0.40% fully diluted · 65% vested
+      </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <div class="label">
+        Equity Value Today
+
+        <div class="icon icon-investors">
+
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+
+            <path
+              d="M12 2v20M17 6.5c0-2-2.2-3-5-3s-5 1.2-5 3 2.2 2.7 5 3 5 1 5 3-2.2 3-5 3-5-1-5-3"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+      <div class="value" id="statEquityToday">
+        $468,000
+      </div>
+
+      <div class="delta up">
+        ▲ At current 409A price · $18.00/sh
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CAP TABLE ================= -->
+
+  <section id="captable-section" class="grid-2col">
+
+
+    <div class="card">
+
+      <div class="section-head">
+
+        <div>
+          <h2 class="section-title">
+            Cap Table
+          </h2>
+
+          <p class="section-sub">
+            Fully diluted ownership across all stakeholder classes.
+          </p>
+        </div>
+
+        <span class="pill">
+          10.0M shares
+        </span>
+
+      </div>
+
+
+      <table class="captable">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Stakeholder
+            </th>
+
+            <th class="num">
+              Shares
+            </th>
+
+            <th style="min-width:120px;">
+              Ownership
+            </th>
+
+            <th class="num">
+              %
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+
+          <!-- FOUNDERS -->
+
+          <tr>
+
+            <td>
+
+              <div class="stakeholder">
+
+                <span
+                  class="swatch"
+                  style="background:var(--founders)"
+                ></span>
+
+                <div>
+
+                  <div class="name">
+                    Founders
+                  </div>
+
+                  <div class="sub">
+                    Common stock · 2 founders
+                  </div>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              5,500,000
+            </td>
+
+            <td>
+
+              <div class="bar-cell">
+
+                <div class="mini-bar">
+
+                  <i
+                    style="width:55%; background:var(--founders)"
+                  ></i>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              55.0%
+            </td>
+
+          </tr>
+
+
+          <!-- SEED -->
+
+          <tr>
+
+            <td>
+
+              <div class="stakeholder">
+
+                <span
+                  class="swatch"
+                  style="background:var(--investors)"
+                ></span>
+
+                <div>
+
+                  <div class="name">
+                    Seed Investors
+                  </div>
+
+                  <div class="sub">
+                    Preferred · $2.0M raised
+                  </div>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              800,000
+            </td>
+
+            <td>
+
+              <div class="bar-cell">
+
+                <div class="mini-bar">
+
+                  <i
+                    style="width:8%; background:var(--investors)"
+                  ></i>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              8.0%
+            </td>
+
+          </tr>
+
+
+          <!-- SERIES A -->
+
+          <tr>
+
+            <td>
+
+              <div class="stakeholder">
+
+                <span
+                  class="swatch"
+                  style="background:var(--investors)"
+                ></span>
+
+                <div>
+
+                  <div class="name">
+                    Series A Investors
+                  </div>
+
+                  <div class="sub">
+                    Preferred · $12.0M raised
+                  </div>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              1,400,000
+            </td>
+
+            <td>
+
+              <div class="bar-cell">
+
+                <div class="mini-bar">
+
+                  <i
+                    style="width:14%; background:var(--investors)"
+                  ></i>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              14.0%
+            </td>
+
+          </tr>
+
+
+          <!-- SERIES B -->
+
+          <tr>
+
+            <td>
+
+              <div class="stakeholder">
+
+                <span
+                  class="swatch"
+                  style="background:var(--investors)"
+                ></span>
+
+                <div>
+
+                  <div class="name">
+                    Series B Investors
+                  </div>
+
+                  <div class="sub">
+                    Preferred · $35.0M raised
+                  </div>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              1,000,000
+            </td>
+
+            <td>
+
+              <div class="bar-cell">
+
+                <div class="mini-bar">
+
+                  <i
+                    style="width:10%; background:var(--investors)"
+                  ></i>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              10.0%
+            </td>
+
+          </tr>
+
+
+          <!-- EMPLOYEE POOL -->
+
+          <tr>
+
+            <td>
+
+              <div class="stakeholder">
+
+                <span
+                  class="swatch"
+                  style="background:var(--employees)"
+                ></span>
+
+                <div>
+
+                  <div class="name">
+                    Employee Option Pool
+                  </div>
+
+                  <div class="sub">
+                    Common · ESOP, ~140 holders
+                  </div>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              1,300,000
+            </td>
+
+            <td>
+
+              <div class="bar-cell">
+
+                <div class="mini-bar">
+
+                  <i
+                    style="width:13%; background:var(--employees)"
+                  ></i>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td class="num">
+              13.0%
+            </td>
+
+          </tr>
+
+
+        </tbody>
+
+
+        <tfoot>
+
+          <tr>
+
+            <td>
+              Total
+            </td>
+
+            <td class="num">
+              10,000,000
+            </td>
+
+            <td></td>
+
+            <td class="num">
+              100.0%
+            </td>
+
+          </tr>
+
+        </tfoot>
+
+      </table>
+
+    </div>
+
+
+    <!-- ================= OWNERSHIP SPLIT ================= -->
+
+    <div class="card chart-card">
+
+      <div class="section-head">
+
+        <div>
+
+          <h2 class="section-title">
+            Ownership Split
+          </h2>
+
+          <p class="section-sub">
+            By stakeholder class
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="donut-wrap">
+
+        <svg
+          width="164"
+          height="164"
+          viewBox="0 0 160 160"
+          class="donut-svg"
+        >
+
+          <g transform="rotate(-90 80 80)">
+
+            <circle
+              cx="80"
+              cy="80"
+              r="62"
+              fill="none"
+              stroke="var(--surface-2)"
+              stroke-width="16"
+            />
+
+            <circle
+              class="donut-seg"
+              cx="80"
+              cy="80"
+              r="62"
+              fill="none"
+              stroke="var(--founders)"
+              stroke-width="16"
+              stroke-dasharray="212.9 389.6"
+              stroke-dashoffset="0"
+              stroke-linecap="round"
+            />
+
+            <circle
+              class="donut-seg"
+              cx="80"
+              cy="80"
+              r="62"
+              fill="none"
+              stroke="var(--investors)"
+              stroke-width="16"
+              stroke-dasharray="121.8 389.6"
+              stroke-dashoffset="-214.9"
+              stroke-linecap="round"
+            />
+
+            <circle
+              class="donut-seg"
+              cx="80"
+              cy="80"
+              r="62"
+              fill="none"
+              stroke="var(--employees)"
+              stroke-width="16"
+              stroke-dasharray="48.3 389.6"
+              stroke-dashoffset="-338.7"
+              stroke-linecap="round"
+            />
+
+          </g>
+
+
+          <text
+            x="80"
+            y="76"
+            text-anchor="middle"
+            class="donut-center-label"
+            fill="var(--text-1)"
+            font-size="22"
+            font-weight="600"
+          >
+            10.0M
+          </text>
+
+          <text
+            x="80"
+            y="94"
+            text-anchor="middle"
+            class="donut-center-label"
+            fill="var(--text-3)"
+            font-size="10"
+          >
+            total shares
+          </text>
+
+        </svg>
+
+
+        <div class="legend">
+
+          <div class="legend-row">
+
+            <span class="name">
+              <span
+                class="swatch"
+                style="background:var(--founders)"
+              ></span>
+
+              Founders
+            </span>
+
+            <span class="pct">
+              55.0%
+            </span>
+
+          </div>
+
+
+          <div class="legend-row">
+
+            <span class="name">
+
+              <span
+                class="swatch"
+                style="background:var(--investors)"
+              ></span>
+
+              Investors
+
+            </span>
+
+            <span class="pct">
+              32.0%
+            </span>
+
+          </div>
+
+
+          <div class="legend-row">
+
+            <span class="name">
+
+              <span
+                class="swatch"
+                style="background:var(--employees)"
+              ></span>
+
+              Employees
+
+            </span>
+
+            <span class="pct">
+              13.0%
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FUNDING JOURNEY ================= -->
+
+  <section
+    id="timeline-section"
+    class="card"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <h2 class="section-title">
+          Funding Journey &amp; Dilution
+        </h2>
+
+        <p class="section-sub">
+          How each round reshapes ownership — and how the liquidation
+          preference stack sits ahead of common stock at exit.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="strata-rows">
+
+
+      <!-- SEED -->
+
+      <div
+        class="strata-row"
+        data-stage="seed"
+      >
+
+        <div class="stage">
+
+          <span class="stage-dot"></span>
+
+          <div>
+
+            <div class="stage-name">
+              Seed
+            </div>
+
+            <div class="stage-date">
+              Mar 2023
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stack-bar">
+
+          <div
+            class="seg"
+            style="width:82%; background:var(--founders)"
+          ></div>
+
+          <div
+            class="seg"
+            style="width:8%; background:var(--employees)"
+          ></div>
+
+          <div
+            class="seg"
+            style="width:10%; background:var(--investors)"
+          ></div>
+
+        </div>
+
+
+        <div class="valuation">
+
+          <span class="val-label">
+            Post-money
+          </span>
+
+          $10.0M
+
+        </div>
+
+      </div>
+
+
+      <!-- SERIES A -->
+
+      <div
+        class="strata-row"
+        data-stage="seriesA"
+      >
+
+        <div class="stage">
+
+          <span class="stage-dot"></span>
+
+          <div>
+
+            <div class="stage-name">
+              Series A
+            </div>
+
+            <div class="stage-date">
+              Nov 2024
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stack-bar">
+
+          <div
+            class="seg"
+            style="width:68%; background:var(--founders)"
+          ></div>
+
+          <div
+            class="seg"
+            style="width:10%; background:var(--employees)"
+          ></div>
+
+          <div
+            class="seg"
+            style="width:22%; background:var(--investors)"
+          ></div>
+
+        </div>
+
+
+        <div class="valuation">
+
+          <span class="val-label">
+            Post-money
+          </span>
+
+          $48.0M
+
+        </div>
+
+      </div>
+
+
+      <!-- SERIES B -->
+
+      <div
+        class="strata-row"
+        data-stage="seriesB"
+      >
+
+        <div class="stage">
+
+          <span class="stage-dot"></span>
+
+          <div>
+
+            <div class="stage-name">
+              Series B
+            </div>
+
+            <div class="stage-date">
+              Jun 2026
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stack-bar">
+
+          <div
+            class="seg"
+            style="width:55%; background:var(--founders)"
+          ></div>
+
+          <div
+            class="seg"
+            style="width:13%; background:var(--employees)"
+          ></div>
+
+          <div
+            class="seg"
+            style="width:32%; background:var(--investors)"
+          ></div>
+
+        </div>
+
+
+        <div class="valuation">
+
+          <span class="val-label">
+            Post-money
+          </span>
+
+          $180.0M
+
+        </div>
+
+      </div>
+
+
+      <!-- EXIT -->
+
+      <div
+        class="strata-row exit-row"
+        data-stage="exit"
+      >
+
+        <div class="stage">
+
+          <span class="stage-dot exit-dot"></span>
+
+          <div>
+
+            <div class="stage-name">
+              Exit ★
+            </div>
+
+            <div class="stage-date">
+              Simulated
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="stack-bar"
+          id="exitStackBar"
+        >
+
+          <div
+            class="seg"
+            id="exitSegPref"
+            style="width:9.8%; background:var(--investors)"
+          ></div>
+
+          <div
+            class="seg"
+            id="exitSegFounders"
+            style="width:73.9%; background:var(--founders)"
+          ></div>
+
+          <div
+            class="seg"
+            id="exitSegEmployees"
+            style="width:16.3%; background:var(--employees)"
+          ></div>
+
+        </div>
+
+
+        <div class="valuation">
+
+          <span class="val-label">
+            Exit valuation
+          </span>
+
+          <span id="exitStageVal">
+            $500.0M
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="strata-legend">
+
+      <span class="name">
+
+        <span
+          class="swatch"
+          style="background:var(--founders)"
+        ></span>
+
+        Founders (common)
+
+      </span>
+
+
+      <span class="name">
+
+        <span
+          class="swatch"
+          style="background:var(--employees)"
+        ></span>
+
+        Employees (common)
+
+      </span>
+
+
+      <span class="name">
+
+        <span
+          class="swatch"
+          style="background:var(--investors)"
+        ></span>
+
+        Investors — incl. liquidation preference at exit
+
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= EMPLOYEE EQUITY SIMULATOR ================= -->
+
+  <section
+    id="simulator-section"
+    class="card simulator-card"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <h2 class="section-title">
+          Employee Equity Simulator
+        </h2>
+
+        <p class="section-sub">
+          Adjust exit valuation, your share count, and deal terms
+          to see how your payout changes in real time.
+        </p>
+
+      </div>
+
+      <span class="pill pill-accent">
+        Interactive
+      </span>
+
+    </div>
+
+
+    <div class="simulator-grid">
+
+
+      <!-- INPUTS -->
+
+      <div class="simulator-inputs">
+
+
+        <!-- EXIT VALUATION -->
+
+        <div class="field">
+
+          <div class="field-top">
+
+            <div>
+
+              <label for="exitValInput">
+                Exit Valuation
+              </label>
+
+              <div class="field-hint">
+                Company sale or IPO value
+              </div>
+
+            </div>
+
+            <div
+              class="field-value"
+              id="exitValDisplay"
+            >
+              $500.0M
+            </div>
+
+          </div>
+
+
+          <input
+            type="range"
+            id="exitValInput"
+            min="50000000"
+            max="1500000000"
+            step="10000000"
+            value="500000000"
+          >
+
+          <div class="range-scale">
+            <span>$50M</span>
+            <span>$1.5B</span>
+          </div>
+
+        </div>
+
+
+        <!-- SHARES -->
+
+        <div class="field">
+
+          <div class="field-top">
+
+            <div>
+
+              <label for="sharesInput">
+                Your Shares / Options
+              </label>
+
+              <div class="field-hint">
+                Total granted, before vesting
+              </div>
+
+            </div>
+
+            <div
+              class="field-value"
+              id="sharesDisplay"
+            >
+              40,000
+            </div>
+
+          </div>
+
+
+          <input
+            type="range"
+            id="sharesInput"
+            min="0"
+            max="200000"
+            step="1000"
+            value="40000"
+          >
+
+          <div class="range-scale">
+            <span>0</span>
+            <span>200,000</span>
+          </div>
+
+        </div>
+
+
+        <!-- VESTING -->
+
+        <div class="field">
+
+          <div class="field-top">
+
+            <div>
+
+              <label for="vestingInput">
+                Vesting Progress
+              </label>
+
+              <div class="field-hint">
+                % of your grant that has vested
+              </div>
+
+            </div>
+
+            <div
+              class="field-value"
+              id="vestingDisplay"
+            >
+              65%
+            </div>
+
+          </div>
+
+
+          <input
+            type="range"
+            id="vestingInput"
+            min="0"
+            max="100"
+            step="5"
+            value="65"
+          >
+
+          <div class="range-scale">
+            <span>0%</span>
+            <span>100%</span>
+          </div>
+
+        </div>
+
+
+        <!-- LIQUIDATION PREFERENCE -->
+
+        <div class="field">
+
+          <div class="field-top">
+
+            <div>
+
+              <label for="prefInput">
+                Liquidation Preference
+              </label>
+
+              <div class="field-hint">
+                Multiple owed to preferred investors before common
+              </div>
+
+            </div>
+
+            <div
+              class="field-value"
+              id="prefDisplay"
+            >
+              1.0×
+            </div>
+
+          </div>
+
+
+          <input
+            type="range"
+            id="prefInput"
+            min="1"
+            max="3"
+            step="0.5"
+            value="1"
+          >
+
+          <div class="range-scale">
+            <span>1.0×</span>
+            <span>3.0×</span>
+          </div>
+
+        </div>
+
+
+        <!-- STRIKE PRICE -->
+
+        <div class="field">
+
+          <div class="field-top">
+
+            <div>
+
+              <label for="strikeInput">
+                Strike Price
+              </label>
+
+              <div class="field-hint">
+                Cost to exercise, per share
+              </div>
+
+            </div>
+
+            <div
+              class="field-value"
+              id="strikeDisplay"
+            >
+              $0.85
+            </div>
+
+          </div>
+
+
+          <input
+            type="range"
+            id="strikeInput"
+            min="0"
+            max="5"
+            step="0.05"
+            value="0.85"
+          >
+
+          <div class="range-scale">
+            <span>$0.00</span>
+            <span>$5.00</span>
+          </div>
+
+        </div>
+
+
+        <!-- RUN SIMULATION BUTTON -->
+
+        <button
+          class="run-btn"
+          id="runSimBtn"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <path
+              d="M6 4l14 8-14 8V4z"
+              fill="#1a1204"
+            />
+
+          </svg>
+
+          Run Simulation
+
+        </button>
+
+      </div>
+
+
+      <!-- ================= LIVE PREVIEW ================= -->
+
+      <div class="preview-panel">
+
+        <h4>
+
+          <span class="pulse-dot"></span>
+
+          Live Preview
+
+        </h4>
+
+
+        <div class="preview-row">
+
+          <span class="k">
+            Total preference stack
+          </span>
+
+          <span
+            class="v"
+            id="prevPrefStack"
+          >
+            $49.0M
+          </span>
+
+        </div>
+
+
+        <div class="preview-row">
+
+          <span class="k">
+            Remaining for common
+          </span>
+
+          <span
+            class="v"
+            id="prevRemaining"
+          >
+            $451.0M
+          </span>
+
+        </div>
+
+
+        <div class="preview-row">
+
+          <span class="k">
+            Common price / share
+          </span>
+
+          <span
+            class="v"
+            id="prevPrice"
+          >
+            $66.32
+          </span>
+
+        </div>
+
+
+        <div class="preview-row">
+
+          <span class="k">
+            Your fully diluted %
+          </span>
+
+          <span
+            class="v"
+            id="prevPct"
+          >
+            0.40%
+          </span>
+
+        </div>
+
+
+        <div class="preview-row">
+
+          <span class="k">
+            Vested shares
+          </span>
+
+          <span
+            class="v"
+            id="prevVested"
+          >
+            26,000
+          </span>
+
+        </div>
+
+
+        <!-- CORRECTED DEFAULT PAYOUT -->
+
+        <div class="preview-row preview-highlight">
+
+          <span class="k">
+            Estimated net payout
+          </span>
+
+          <span
+            class="v pos"
+            id="prevPayout"
+          >
+            $1,702,312
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SIMULATION RESULTS ================= -->
+
+  <section id="results-section">
+
+    <div class="section-head">
+
+      <div>
+
+        <h2 class="section-title">
+          Simulation Results
+        </h2>
+
+        <p class="section-sub">
+          Your estimated payout after liquidation preference,
+          dilution, and option exercise cost.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="results-grid">
+
+
+      <!-- RESULT HERO -->
+
+      <div class="result-hero">
+
+        <div>
+
+          <p class="eyebrow">
+            Estimated Payout
+          </p>
+
+
+          <!-- CORRECTED DEFAULT PAYOUT -->
+
+          <div
+            class="payout"
+            id="finalPayout"
+          >
+            $1,702,312
+          </div>
+
+
+          <div class="payout-sub">
+            Net of exercise cost, at a $500.0M exit
+          </div>
+
+        </div>
+
+
+        <div class="breakdown-list">
+
+
+          <!-- VESTED SHARES -->
+
+          <div class="breakdown-row">
+
+            <span class="k">
+              Vested shares
+            </span>
+
+            <span
+              class="v"
+              id="brVested"
+            >
+              26,000
+            </span>
+
+          </div>
+
+
+          <!-- PRICE PER SHARE -->
+
+          <div class="breakdown-row">
+
+            <span class="k">
+              Common price / share
+            </span>
+
+            <span
+              class="v"
+              id="brPrice"
+            >
+              $66.32
+            </span>
+
+          </div>
+
+
+          <!-- CORRECTED GROSS PROCEEDS -->
+
+          <div class="breakdown-row">
+
+            <span class="k">
+              Gross proceeds
+            </span>
+
+            <span
+              class="v"
+              id="brGross"
+            >
+              $1,724,412
+            </span>
+
+          </div>
+
+
+          <!-- EXERCISE COST -->
+
+          <div class="breakdown-row">
+
+            <span class="k">
+              Exercise cost
+            </span>
+
+            <span
+              class="v neg"
+              id="brExercise"
+            >
+              −$22,100
+            </span>
+
+          </div>
+
+
+          <!-- CORRECTED NET PAYOUT -->
+
+          <div class="breakdown-row total">
+
+            <span class="k">
+              Net payout
+            </span>
+
+            <span
+              class="v"
+              id="brNet"
+            >
+              $1,702,312
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= SCENARIO COMPARISON ================= -->
+
+      <div class="card scenario-card">
+
+        <h3>
+          Scenario Comparison
+        </h3>
+
+        <p class="section-sub">
+          Your net payout across a range of exit valuations,
+          at current terms.
+        </p>
+
+        <div
+          class="scenario-chart"
+          id="scenarioChart"
+        ></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <span>
+    Strata — frontend prototype.
+    All figures are illustrative mock data.
+  </span>
+
+  <span class="disclaimer">
+    Not investment, tax, or legal advice.
+    Liquidation waterfalls simplified for demonstration
+    (non-participating preferred, single exit event).
+  </span>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
