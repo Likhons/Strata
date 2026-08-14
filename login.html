@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign in — Strata</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="login-body">
+
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <div class="login-shell">
+
+        <!-- ================= LEFT PANEL ================= -->
+
+        <section class="login-side">
+
+            <div class="brand">
+
+                <div class="brand-mark">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <span class="brand-name">
+                    Strata
+                    <sup>PROTOTYPE</sup>
+                </span>
+
+            </div>
+
+
+            <div class="login-side-copy">
+
+                <p class="eyebrow">
+                    Employee Equity Intelligence
+                </p>
+
+                <h1>
+                    Your stake, held in the ledger — waiting for you to sign in.
+                </h1>
+
+                <p class="lede">
+                    Every round, every preference, every share you've earned.
+                    Strata keeps the full cap table in sync so your number is
+                    never a guess.
+                </p>
+
+            </div>
+
+
+            <!-- Locked ledger preview -->
+
+            <div class="ledger-peek" aria-hidden="true">
+
+                <div class="ledger-peek-row">
+
+                    <span class="lp-label">
+                        Founders
+                    </span>
+
+                    <div class="lp-bar">
+                        <i
+                            style="width:55%; background:var(--founders);"
+                        ></i>
+                    </div>
+
+                </div>
+
+
+                <div class="ledger-peek-row">
+
+                    <span class="lp-label">
+                        Investors
+                    </span>
+
+                    <div class="lp-bar">
+                        <i
+                            style="width:32%; background:var(--investors);"
+                        ></i>
+                    </div>
+
+                </div>
+
+
+                <div class="ledger-peek-row">
+
+                    <span class="lp-label">
+                        Employees
+                    </span>
+
+                    <div class="lp-bar">
+                        <i
+                            style="width:13%; background:var(--employees);"
+                        ></i>
+                    </div>
+
+                </div>
+
+
+                <div class="ledger-peek-lock">
+
+                    <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+                        <rect
+                            x="5"
+                            y="11"
+                            width="14"
+                            height="9"
+                            rx="2"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <path
+                            d="M8 11V7a4 4 0 018 0v4"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                    <span>
+                        Your figures unlock after sign in
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="login-side-foot">
+
+                <div class="live-chip">
+                    <span class="live-dot"></span>
+                    Live model
+                </div>
+
+                <span class="login-side-foot-note">
+                    Ledger-verified cap table
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RIGHT LOGIN PANEL ================= -->
+
+        <section class="login-main">
+
+            <div class="login-card">
+
+
+                <!-- Header -->
+
+                <div class="login-card-head">
+
+                    <h2>
+                        Sign in
+                    </h2>
+
+                    <p>
+                        Enter your workspace credentials to view your equity.
+                    </p>
+
+                </div>
+
+
+                <!-- Login tabs -->
+
+                <div
+                    class="login-tabs"
+                    role="tablist"
+                >
+
+                    <button
+                        type="button"
+                        class="login-tab active"
+                        id="tabSignin"
+                        role="tab"
+                        aria-selected="true"
+                    >
+                        Sign in
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="login-tab"
+                        id="tabSSO"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Company SSO
+                    </button>
+
+                </div>
+
+
+                <!-- Login Form -->
+
+                <form
+                    id="loginForm"
+                    class="login-form"
+                    novalidate
+                >
+
+
+                    <!-- Email -->
+
+                    <div
+                        class="l-field"
+                        id="fieldEmail"
+                    >
+
+                        <label for="emailInput">
+                            Work email
+                        </label>
+
+
+                        <div class="l-input-wrap">
+
+                            <svg
+                                class="l-input-icon"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M4 6h16v12H4z"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                />
+
+                                <path
+                                    d="M4 7l8 6 8-6"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+
+
+                            <input
+                                type="email"
+                                id="emailInput"
+                                name="email"
+                                placeholder="you@company.com"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+
+                        <span
+                            class="l-error"
+                            id="errEmail"
+                        >
+                            Enter a valid work email.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div
+                        class="l-field"
+                        id="fieldPassword"
+                    >
+
+                        <div class="l-label-row">
+
+                            <label for="passwordInput">
+                                Password
+                            </label>
+
+
+                            <a
+                                href="#"
+                                class="l-forgot"
+                                id="forgotLink"
+                            >
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+
+                        <div class="l-input-wrap">
+
+                            <svg
+                                class="l-input-icon"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <rect
+                                    x="5"
+                                    y="11"
+                                    width="14"
+                                    height="9"
+                                    rx="2"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                />
+
+                                <path
+                                    d="M8 11V7a4 4 0 018 0v4"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+
+
+                            <input
+                                type="password"
+                                id="passwordInput"
+                                name="password"
+                                placeholder="••••••••••"
+                                autocomplete="current-password"
+                                minlength="8"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="l-eye"
+                                id="toggleVis"
+                                aria-label="Show password"
+                            >
+
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+
+                                    <path
+                                        d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    />
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="3"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                    />
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+
+                        <span
+                            class="l-error"
+                            id="errPassword"
+                        >
+                            Password must be at least 8 characters.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Remember me -->
+
+                    <label class="l-check">
+
+                        <input
+                            type="checkbox"
+                            id="rememberInput"
+                            checked
+                        >
+
+                        <span class="l-check-box"></span>
+
+                        <span class="l-check-label">
+                            Keep me signed in on this device
+                        </span>
+
+                    </label>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="run-btn login-submit"
+                        id="submitBtn"
+                    >
+
+                        <span class="login-submit-label">
+                            Sign in to Strata
+                        </span>
+
+
+                        <svg
+                            class="login-spinner"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9"
+                                stroke="#1a1204"
+                                stroke-width="2.4"
+                                stroke-linecap="round"
+                                stroke-dasharray="42"
+                                stroke-dashoffset="10"
+                            />
+
+                        </svg>
+
+                    </button>
+
+
+                    <!-- Login status -->
+
+                    <div
+                        class="login-status"
+                        id="loginStatus"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+
+                <!-- Divider -->
+
+                <div class="login-divider">
+                    <span>or</span>
+                </div>
+
+
+                <!-- Google -->
+
+                <button
+                    type="button"
+                    class="login-google"
+                    id="googleLoginBtn"
+                >
+
+                    <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                    >
+
+                        <path
+                            fill="#EA4335"
+                            d="M12 10.2v3.9h5.5c-.24 1.4-1.7 4.1-5.5 4.1-3.3 0-6-2.7-6-6.2s2.7-6.2 6-6.2c1.9 0 3.2.8 3.9 1.5l2.7-2.6C16.9 3 14.7 2 12 2 6.9 2 2.8 6.1 2.8 11.2S6.9 20.4 12 20.4c6.9 0 9.1-4.9 9.1-7.4 0-.5-.1-.9-.1-1.3H12z"
+                        />
+
+                    </svg>
+
+                    Continue with Google
+
+                </button>
+
+
+                <!-- Invite -->
+
+                <p class="login-signup">
+
+                    New to Strata?
+
+                    <a
+                        href="#"
+                        id="inviteLink"
+                    >
+                        Ask your admin for an invite
+                    </a>
+
+                </p>
+
+            </div>
+
+
+            <!-- Legal -->
+
+            <p class="login-legal">
+                Not investment, tax, or legal advice.
+                Prototype credentials are not stored.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <!-- Login JavaScript -->
+
+    <script src="login.js"></script>
+
+</body>
+</html>
